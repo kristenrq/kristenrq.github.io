@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gorditas:wght@400;700&family=Sniglet:wght@400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Sniglet", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Sniglet", ui-sans-serif, system-ui, sans-serif;
+  --font-curly: "Caveat", cursive;
+  --font-logo: "Gorditas", cursive;
+
+  --color-primary-50: #fff7ed;
+  --color-primary-100: #ffedd5;
+  --color-primary-200: #fed7aa;
+  --color-primary-300: #fdba74;
+  --color-primary-400: #fb923c;
+  --color-primary-500: #f97316;
+  --color-primary-600: #ea580c;
+  --color-primary-700: #c2410c;
+}
+
+body {
+  background-color: #fafaf9;
+}

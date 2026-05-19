@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Find your perfect furry companion at ForeverHome. We are a sanctuary dedicated to rescuing, rehabilitating, and rehoming pets in need." />
+    <meta name="keywords" content="pet rescue, animal sanctuary, adopt a pet, rescue dogs, rescue cats, animal adoption" />
+    <title>ForeverHome: Find your soulmate</title>
+    <!-- Use Tailwind CDN for static site -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Gorditas:wght@400;700&family=Sniglet:wght@400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      :root {
+        --font-sans: "Sniglet", ui-sans-serif, system-ui, sans-serif;
+        --font-heading: "Sniglet", ui-sans-serif, system-ui, sans-serif;
+        --font-curly: "Caveat", cursive;
+        --font-logo: "Gorditas", cursive;
+      }
+      body {
+        background-color: #A0E8E1;
+        font-family: var(--font-sans);
+        color: #1D3535;
+      }
+      .font-logo { font-family: var(--font-logo); }
+      .font-curly { font-family: var(--font-curly); }
+      
+      ::selection {
+        background-color: #FF6F61;
+        color: white;
+      }
+
+      .stagger-in {
+        animation: staggerIn 0.3s ease-out forwards;
+        opacity: 0;
+      }
+      @keyframes staggerIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen p-4 md:p-6 lg:p-8 flex flex-col relative overflow-x-hidden">
+    
+    <!-- Background SVG Decorations -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden text-[#1E3A3A]/10">
+      <i data-lucide="bone" class="absolute top-[15%] right-[-5%] w-48 h-48 rotate-45"></i>
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="absolute top-[40%] -left-12 w-[400px] h-[400px] opacity-40 rotate-[10deg]">
+        <rect x="12" y="56" width="40" height="4" rx="2" />
+        <line x1="20" y1="56" x2="20" y2="30" />
+        <line x1="44" y1="56" x2="44" y2="40" />
+        <line x1="32" y1="30" x2="32" y2="12" />
+        <rect x="10" y="26" width="20" height="4" rx="2" />
+        <rect x="34" y="36" width="20" height="4" rx="2" />
+        <rect x="22" y="8" width="20" height="4" rx="2" />
+        <line x1="26" y1="12" x2="26" y2="20" stroke-dasharray="2 2" />
+        <circle cx="26" cy="22" r="2" />
+      </svg>
+      <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="absolute bottom-[5%] -right-12 w-[450px] h-[450px] opacity-40 -rotate-6">
+        <path d="M32 4L4 28h8v32h40V28h8L32 4z" />
+        <path d="M20 60V44a12 12 0 0 1 24 0v16" />
+      </svg>
+      <i data-lucide="paw-print" class="absolute top-[50%] left-[30%] w-40 h-40 rotate-45"></i>
+      <i data-lucide="paw-print" class="absolute bottom-[10%] left-[20%] w-56 h-56 -rotate-12"></i>
+      <i data-lucide="bone" class="absolute bottom-[30%] right-[25%] w-32 h-32 -rotate-45"></i>
+    </div>
+
+    <!-- Header Section -->
+    <header class="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 gap-4 relative z-10">
+      <div>
+        <a href="/" aria-label="ForeverHome Navigation Header" class="flex items-center gap-2 md:gap-3 text-[#FF6F61] mb-1 hover:opacity-80 transition-opacity">
+          <img src="/public/photos/foreverhome_logo.png" alt="Forever Home Sanctuary Logo" class="w-32 object-contain rounded-2xl" />
+        </a>
+        <p class="text-sm text-[#4E7A7A] uppercase tracking-widest mt-1 ml-1">Sanctuary & Rescue</p>
+      </div>
+      <div class="hidden sm:flex relative mt-4 md:mt-0 items-center justify-center">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="absolute -top-26 -right-10 w-84 h-84 text-[#1E3A3A]/15 rotate-[15deg] pointer-events-none">
+          <ellipse cx="32" cy="28" rx="22" ry="12" />
+          <path d="M32 40 v8" />
+          <circle cx="32" cy="52" r="4" />
+          <rect x="28" y="36" width="8" height="8" rx="1" fill="currentColor" />
+        </svg>
+        <a href="/adopt.html" aria-label="Navigate to Adoption Page" class="relative z-10 bg-[#FF6F61] text-white px-6 py-3 rounded-[16px] text-sm font-bold shadow-sm hover:shadow-md hover:bg-[#E85B4E] transition-all cursor-pointer inline-block">
+          Adopt Today
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow flex flex-col relative z-10">
+      <!-- The Bento Grid -->
+      <div id="pets-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 auto-rows-max">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Our Mission Section -->
+      <section class="mt-8 bg-[#1D3535] text-white rounded-[32px] p-8 md:p-12 relative overflow-hidden shadow-lg border border-[#112424]">
+        <div class="absolute -right-20 -top-20 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-3xl mx-auto text-center relative z-10">
+          <h2 class="text-3xl md:text-4xl font-bold font-logo mb-6 tracking-tight text-[#FF6F61]">Our Mission</h2>
+          <p class="text-lg md:text-xl text-white/90 leading-relaxed font-sans">
+            At ForeverHome, we believe every animal deserves a second chance at happiness. Our sanctuary is dedicated to rescuing, rehabilitating, and rehoming pets in need. We work tirelessly to match each unique pet with a loving family, providing continued support to ensure a lifelong bond. Join us in making a difference, one rescued life at a time.
+          </p>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="mt-8 bg-white/60 backdrop-blur-md rounded-[32px] p-8 border-2 border-white/40 mb-6 shadow-sm relative overflow-hidden">
+        <div class="absolute -top-32 -left-32 w-64 h-64 bg-white/80 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 text-center mb-8">
+          <h2 class="text-3xl font-bold text-[#1D3535] mb-2 font-logo tracking-tight">Happy Tails</h2>
+          <p class="text-[#4E7A7A] text-sm max-w-md mx-auto">Hear from families who found their perfect match at our sanctuary.</p>
+        </div>
+        
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Testimonial 1 -->
+          <div class="bg-white/90 rounded-2xl p-6 shadow-sm border border-[#1D3535]/5 flex flex-col">
+            <div class="flex text-[#FF6F61] mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-[#1D3535] text-sm mb-4 flex-grow font-medium leading-relaxed italic">"Adopting Sally was the best decision our family ever made. The staff at ForeverHome were incredible and she's brought so much joy into our lives!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#A0E8E1] border-2 border-white overflow-hidden flex items-center justify-center">
+                <i data-lucide="user" class="w-5 h-5 text-[#4E7A7A]"></i>
+              </div>
+              <div>
+                <div class="font-bold text-sm text-[#1D3535]">Michelle</div>
+                <div class="text-[10px] uppercase font-bold text-[#4E7A7A] tracking-wider">Adopted Sally</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 2 -->
+          <div class="bg-white/90 rounded-2xl p-6 shadow-sm border border-[#1D3535]/5 flex flex-col">
+            <div class="flex text-[#FF6F61] mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-[#1D3535] text-sm mb-4 flex-grow font-medium leading-relaxed italic">"Ada is a perfect fit. The adoption process was smooth, and the team really cares about where these animals end up. Thank you ForeverHome!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#A0E8E1] border-2 border-white overflow-hidden flex items-center justify-center">
+                <i data-lucide="user" class="w-5 h-5 text-[#4E7A7A]"></i>
+              </div>
+              <div>
+                <div class="font-bold text-sm text-[#1D3535]">Matt</div>
+                <div class="text-[10px] uppercase font-bold text-[#4E7A7A] tracking-wider">Adopted Ada</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 3 -->
+          <div class="bg-white/90 rounded-2xl p-6 shadow-sm border border-[#1D3535]/5 flex flex-col">
+            <div class="flex text-[#FF6F61] mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-[#1D3535] text-sm mb-4 flex-grow font-medium leading-relaxed italic">"Jovi is energetic, sweet, and absolutely wonderful. The shelter made sure we were ready for a young dog. We refer everyone to ForeverHome."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#A0E8E1] border-2 border-white overflow-hidden flex items-center justify-center">
+                <i data-lucide="user" class="w-5 h-5 text-[#4E7A7A]"></i>
+              </div>
+              <div>
+                <div class="font-bold text-sm text-[#1D3535]">Alessandro</div>
+                <div class="text-[10px] uppercase font-bold text-[#4E7A7A] tracking-wider">Adopted Jovi</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Donate Section (Bento Grid Style) -->
+      <section class="mt-2 bg-[#FF6F61] rounded-[32px] p-8 md:p-10 border-2 border-white/20 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 group shadow-sm transition-all hover:border-white/50">
+        <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-white/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 max-w-xl text-center md:text-left">
+          <h2 class="text-3xl font-bold text-white mb-3 tracking-tight">Support our mission</h2>
+          <p class="text-white/90 leading-relaxed text-sm md:text-base">
+            Every donation helps us provide medical care, food, and safe shelter for rescues waiting for their forever homes. Even a small contribution makes a huge difference in their lives.
+          </p>
+        </div>
+        <div class="relative z-10 shrink-0">
+          <a href="/donate.html" class="bg-white text-[#FF6F61] px-8 py-3 rounded-2xl text-sm font-bold shadow-lg hover:shadow-xl hover:bg-[#FFF3E0] transition-all active:scale-95 flex items-center gap-2 cursor-pointer inline-flex">
+            <i data-lucide="heart" class="w-4 h-4 fill-[#FF6F61] text-[#FF6F61]"></i>
+            Donate now
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Details -->
+    <footer class="mt-8 bg-[#1D3535] rounded-3xl p-8 text-white relative z-10 shadow-lg border border-[#112424]">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+        <div class="lg:col-span-2">
+          <a href="/" aria-label="ForeverHome Navigation Footer" class="flex items-center gap-2 text-[#FF6F61] mb-4 hover:opacity-80 transition-opacity inline-flex">
+            <img src="/public/photos/foreverhome_logo.png" alt="Forever Home Sanctuary Logo" class="w-24 object-contain rounded-2xl" />
+          </a>
+          <p class="text-white/70 max-w-sm mb-6 text-sm leading-relaxed">
+            We are a non-profit sanctuary dedicated to finding loving forever homes for rescue animals in need.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" aria-label="Visit our Facebook page" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FF6F61] transition-colors text-white">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="#" aria-label="Visit our Twitter page" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FF6F61] transition-colors text-white">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+            </a>
+            <a href="#" aria-label="Visit our YouTube channel" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#FF6F61] transition-colors text-white">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="lg:col-span-1">
+          <h4 class="text-lg font-bold mb-4">Visit us</h4>
+          <div class="text-white/70 text-sm space-y-2 leading-relaxed">
+            <p>1600 Amphitheatre Pkwy<br />Mountain View, CA 94043</p>
+            <p><strong>Hours:</strong><br /> Open daily 9am &mdash; 5pm</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="text-lg font-bold mb-4">Join our newsletter</h4>
+          <p class="text-white/70 text-sm mb-4">Get heartwarming rescue stories and adoption updates directly to your inbox.</p>
+          <form class="flex gap-2" onsubmit="event.preventDefault()">
+            <input 
+              type="email" 
+              placeholder="Enter your email address" 
+              aria-label="Email address for newsletter"
+              class="bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm flex-grow focus:outline-none focus:ring-2 focus:ring-[#FF6F61] text-white placeholder:text-white/40"
+            />
+            <button 
+              type="submit" 
+              aria-label="Subscribe to newsletter"
+              class="bg-[#FF6F61] hover:bg-[#E85B4E] text-white px-5 py-3 rounded-xl transition-colors flex items-center justify-center shrink-0 cursor-pointer"
+            >
+              <i data-lucide="arrow-right" class="w-5 h-5" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="flex flex-col sm:flex-row justify-between items-center text-[10px] text-white/50 font-bold uppercase tracking-widest border-t border-white/10 pt-6 gap-4">
+        <div>Est. 2026 &bull; Adoption Shelter License #44120</div>
+        <div class="flex flex-wrap gap-4 sm:gap-6 justify-center">
+          <a href="/terms.html" class="hover:text-white transition-colors">Terms of Care</a>
+          <a href="/volunteer.html" class="hover:text-white transition-colors">Volunteering</a>
+          <a href="/contact.html" class="hover:text-white transition-colors">Contact Support</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Pets Data and Rendering Logic -->
+    <script>
+      const pets = [
+        { id: 1, name: "John", age: "5 years old", type: "cat", photo: "/public/photos/John.jpg" },
+        { id: 5, name: "Sally", age: "10 years old", type: "dog", photo: "/public/photos/Sally.jpeg", isAdopted: true },
+        { id: 6, name: "Bowie", age: "2 years old", type: "dog", photo: "/public/photos/Bowie.jpg" },
+        { id: 7, name: "Tyson", age: "7 years old", type: "dog", photo: "/public/photos/Tyson.jpeg" },
+        { id: 8, name: "Elly", age: "10 years old", type: "cat", photo: "/public/photos/Elly.jpg" },
+        { id: 9, name: "Tuna Fish", age: "6 years old", type: "dog", photo: "/public/photos/Tuna-Fish.jpg" },
+        { id: 10, name: "Harley", age: "11 years old", type: "dog", photo: "/public/photos/Harley.jpeg" },
+        { id: 11, name: "Buddy", age: "8 years old", type: "dog", photo: "/public/photos/Buddy.jpg" },
+        { id: 12, name: "Z.low", age: "6 years old", type: "cat", photo: "/public/photos/Z.low.jpeg" },
+        { id: 13, name: "Moose", age: "8 years old", type: "dog", photo: "/public/photos/Moose.jpg" },
+        { id: 14, name: "Ada", age: "5 years old", type: "dog", photo: "/public/photos/Ada.jpg", isAdopted: true },
+        { id: 15, name: "Chester", age: "16 years old", type: "dog", photo: "/public/photos/Chester.jpeg" },
+        { id: 25, name: "Buddy S.", age: "8 years old", type: "dog", photo: "/public/photos/buddy-s.jpg" },
+        { id: 16, name: "Zucca", age: "2 years old", type: "dog", photo: "/public/photos/Zucca.jpg" },
+        { id: 17, name: "Lola", age: "3 years old", type: "dog", photo: "/public/photos/Lola.jpg" },
+        { id: 18, name: "Josie", age: "2 years old", type: "dog", photo: "/public/photos/Josie.jpg" },
+        { id: 19, name: "Jovi", age: "2 years old", type: "dog", photo: "/public/photos/Jovi.jpg", isAdopted: true },
+        { id: 20, name: "Louie C.", age: "10 years old", type: "dog", photo: "/public/photos/Louie-Cinnamon.jpg" },
+        { id: 21, name: "Luna", age: "6 years old", type: "dog", photo: "/public/photos/Luna.jpg" },
+        { id: 2, name: "Bojangles", age: "15 years old", type: "dog", photo: "/public/photos/Bojangles.jpg" },
+        { id: 22, name: "Amby", age: "14 years old", type: "dog", photo: "/public/photos/Amby.jpeg" },
+        { id: 3, name: "Basia", age: "5 years old", type: "cat", photo: "/public/photos/basia.jpg" },
+        { id: 4, name: "Nyla", age: "1 years old", type: "dog", photo: "/public/photos/Nyla.jpg" },
+        { id: 23, name: "Zulu", age: "8 months old", type: "dog", photo: "/public/photos/Zulu.jpg" },
+        { id: 24, name: "Noble", age: "4 years old", type: "dog", photo: "/public/photos/Noble.jpg" },
+      ];
+
+      const bentoColors = [
+        'bg-white/90', 'bg-[#FFF3EC]/90', 'bg-[#F2FBFB]/90', 'bg-[#FFF9EA]/90', 'bg-[#FAF3FA]/90', 'bg-[#F5F8FF]/90'
+      ];
+
+      function renderPets() {
+        const grid = document.getElementById('pets-grid');
+        grid.innerHTML = '';
+        
+        // Add Featured Hero Cell
+        const heroCell = document.createElement('section');
+        heroCell.className = "col-span-2 md:col-span-4 lg:col-span-2 xl:col-span-2 row-span-1 bg-[#FF6F61] rounded-[32px] p-6 lg:p-8 flex flex-col justify-center relative overflow-hidden stagger-in";
+        heroCell.innerHTML = `
+          <div class="relative z-10 mt-4 md:mt-0">
+            <h2 class="text-3xl md:text-4xl font-bold text-white leading-none mb-3 tracking-tight">
+              Find your<br/>soulmate
+            </h2>
+            <p class="text-white/90 text-sm max-w-[240px] leading-relaxed mt-2">
+              Providing specialized care and finding forever homes for our beloved rescues.
+            </p>
+          </div>
+          <div class="absolute -top-1/4 -right-1/4 w-3/4 h-3/4 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+          <i data-lucide="paw-print" class="absolute -bottom-10 -right-10 w-72 h-72 text-white/20 -rotate-12 pointer-events-none"></i>
+        `;
+        grid.appendChild(heroCell);
+
+        pets.forEach((pet, index) => {
+          const cellBgClass = bentoColors[index % bentoColors.length];
+          const div = document.createElement('div');
+          div.className = `${cellBgClass} backdrop-blur-sm rounded-[24px] p-4 flex flex-col justify-between border-2 border-white/40 hover:border-[#FF6F61] transition-colors group cursor-pointer shadow-sm stagger-in`;
+          div.style.animationDelay = `${index * 0.03}s`;
+          
+          let adoptedHtml = pet.isAdopted ? `
+            <div class="absolute top-5 -right-10 w-36 bg-[#1D3535] text-white text-[10px] font-bold uppercase tracking-widest py-1.5 text-center rotate-45 shadow-sm z-20">
+              Adopted
+            </div>
+          ` : '';
+
+          div.innerHTML = `
+            <div class="w-full aspect-[4/5] bg-white/40 rounded-xl mb-3 overflow-hidden relative shadow-sm text-3xl flex items-center justify-center">
+              <img src="${pet.photo}" alt="${pet.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy" />
+              <button class="absolute top-2 right-2 bg-white/60 backdrop-blur-md p-1.5 rounded-full text-neutral-600 hover:text-white hover:bg-[#FF6F61] transition-all opacity-0 group-hover:opacity-100 shadow-sm" aria-label="Favorite">
+                <i data-lucide="heart" class="w-4 h-4"></i>
+              </button>
+              ${adoptedHtml}
+            </div>
+            <div class="px-1 flex justify-between items-end">
+              <div>
+                <h3 class="font-curly font-bold text-3xl text-[#1D3535] leading-none mb-1 group-hover:text-[#FF6F61] transition-colors">
+                  ${pet.name}
+                </h3>
+                <p class="text-xs text-[#4E7A7A] font-medium flex items-center gap-1 mt-0">
+                  ${pet.age}
+                </p>
+              </div>
+              <div class="text-[10px] font-bold uppercase tracking-widest text-[#4E7A7A] opacity-70 bg-[#1D3535]/5 px-2 py-1 rounded">
+                ${pet.type}
+              </div>
+            </div>
+          `;
+          grid.appendChild(div);
+        });
+
+        lucide.createIcons();
+      }
+
+      // Initial render
+      renderPets();
+    </script>
+  </body>
+</html>
+
